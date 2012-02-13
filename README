@@ -1,3 +1,9 @@
+
+This is a working demonstration using the ActiveMerchant::Billing::EwayGateway
+http://www.eway.com.au/
+
+---------------------------------------------------------
+
 Railscasts Episode #144: Active Merchant Basics
 
 http://railscasts.com/episodes/144
