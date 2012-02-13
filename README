@@ -1,13 +1,43 @@
-
 This is a working demonstration using the ActiveMerchant::Billing::EwayGateway
 http://www.eway.com.au/
 
----------------------------------------------------------
+-------------------------------------------------------------------------------
+Here is a sample for the XML sent
 
-Railscasts Episode #144: Active Merchant Basics
+<ewaygateway>
+    <ewayCardNumber>4444333322221111</ewayCardNumber>
+    <ewayCardExpiryMonth>01</ewayCardExpiryMonth>
+    <ewayCardExpiryYear>15</ewayCardExpiryYear>
+    <ewayCustomerFirstName>John</ewayCustomerFirstName>
+    <ewayCustomerLastName>Citizen</ewayCustomerLastName>
+    <ewayCardHoldersName>John Citizen</ewayCardHoldersName>
+    <ewayCVN>123</ewayCVN>
+    <ewayCustomerAddress>10 Smith Street, Collingwood, VIC, AU</ewayCustomerAddress>
+    <ewayCustomerPostcode>3066</ewayCustomerPostcode>
+    <ewayCustomerEmail/>
+    <ewayCustomerInvoiceRef>123</ewayCustomerInvoiceRef>
+    <ewayCustomerInvoiceDescription/>
+    <ewayTrxnNumber/>
+    <ewayOption1/>
+    <ewayOption2/>
+    <ewayOption3/>
+    <ewayTotalAmount>1500</ewayTotalAmount>
+    <ewayCustomerID>87654321</ewayCustomerID>
+</ewaygateway>
 
-http://railscasts.com/episodes/144
+-------------------------------------------------------------------------------
+Here is a sample for the XML returned
 
-Commands
+<ewayResponse>
+    <ewayTrxnStatus>True</ewayTrxnStatus>
+    <ewayTrxnNumber>11111</ewayTrxnNumber>
+    <ewayTrxnReference/>
+    <ewayTrxnOption1/>
+    <ewayTrxnOption2/>
+    <ewayTrxnOption3/>
+    <ewayAuthCode>123456</ewayAuthCode>
+    <ewayReturnAmount>1500</ewayReturnAmount>
+    <ewayTrxnError>00,Transaction Approved(Test CVN Gateway)</ewayTrxnError>
+</ewayResponse>
 
-  sudo gem install activemerchant
+-------------------------------------------------------------------------------
