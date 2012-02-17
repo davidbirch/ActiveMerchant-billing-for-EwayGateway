@@ -1,4 +1,3 @@
-
 # this is an adaption of the Active Merchant library for eWay Merchant Hosted Payment solution
 # http://rubydoc.info/github/Shopify/active_merchant/master/ActiveMerchant/Billing/EwayGateway
 # http://www.eway.com.au/Developer/eway-api/hosted-payment-solution.aspx
@@ -19,6 +18,13 @@ gateway = ActiveMerchant::Billing::EwayGateway.new(
 # set the value of the transaction in AUD cents
 # transaction amount is a mandatory field for a purchase
 money = 1500
+
+# note: about the transaction amount in the sandbox
+# depending on the cents value passed through the gateway
+# the result will either return as transaction successful or failed. 
+# Example:
+# $10.00 will return a response code 00 - Transaction Approved.
+# $10.33 will return a response code 33 - Expired Card, Capture
 
 # declare a credit card
 # note: the Sandbox allows you to test any valid Visa/MasterCard credit card, however feel free to use the following test cards:
@@ -44,13 +50,22 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 options = {
     :order_id => '123',
     :billing_address => {
-      :address1 => '10 Smith Street',
-      :city => 'Collingwood',
-      :state => 'VIC',
-      :country => 'AU',
-      :zip => '3066'
+      :address1 => '',
+      :zip => ''
       },
 }
+
+# note: here is an example with a full address
+#options = {
+#    :order_id => '123',
+#    :billing_address => {
+#      :address1 => '10 Smith Street',
+#      :city => 'Collingwood',
+#      :state => 'VIC',
+#      :country => 'AU',
+#      :zip => '3066'
+#      },
+#}
 
 #validate the credit card and transact
 if credit_card.valid?
